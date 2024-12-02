@@ -9,5 +9,5 @@ public class MinjiSuperBeApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MinjiSuperBeApplication.class, args);
 	}
-
+ //test commit
 }
