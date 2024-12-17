@@ -17,7 +17,7 @@ public class PostService {
 
     public Post getPostById(Long id) {
         return postRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("게시물을 찾을 수 없습니다. ID: " + id));
+                .orElseThrow(() -> new RuntimeException("게시물을 찾을 수 없습니다. ID : " + id));
     }
 
     public Post updatePost(Long id, Post updatedPost) {
