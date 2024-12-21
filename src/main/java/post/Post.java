@@ -2,6 +2,7 @@ package post;
 
 import jakarta.persistence.*;
 import lombok.*;
+import member.Member;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -29,4 +30,8 @@ public class Post {
 
     @Column
     private String thumbnail; // 사진 URL 또는 파일 경로
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id", nullable = false) // 외래키
+    private Member member;
 }
