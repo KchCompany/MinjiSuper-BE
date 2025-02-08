@@ -1,5 +1,6 @@
 package inquary;
 
+import lombok.Getter;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
