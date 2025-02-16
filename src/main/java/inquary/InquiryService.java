@@ -8,9 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class InquiryService {
 
     private final InquiryRepository inquiryRepository;
-    private final NaverSmsService smsService;
+    // private final NaverSmsService smsService;
+    private final FakeNaverSmsService smsService; // 기존 NaverSmsService 대신 Fake 사용
 
-    public InquiryService(InquiryRepository inquiryRepository, NaverSmsService smsService) {
+    public InquiryService(InquiryRepository inquiryRepository, FakeNaverSmsService smsService) {
         this.inquiryRepository = inquiryRepository;
         this.smsService = smsService;
     }
