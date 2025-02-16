@@ -5,7 +5,7 @@ CREATE TABLE member (
     username VARCHAR(50) NOT NULL UNIQUE, -- 사용자 ID
     password VARCHAR(255) NOT NULL,       -- 암호화된 비밀번호
     role VARCHAR(20) NOT NULL,            -- 권한 (e.g., 'ROLE_ADMIN')
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- 삭제 예정
 );
 
 CREATE TABLE post (
