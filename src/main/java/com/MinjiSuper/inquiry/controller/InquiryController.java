@@ -2,6 +2,7 @@ package com.minjisuper.inquiry.controller;
 
 import com.minjisuper.inquiry.entity.Inquiry;
 import com.minjisuper.inquiry.service.InquiryService;
+import com.minjisuper.inquiry.service.SmsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -15,9 +16,11 @@ import java.util.Map;
 public class InquiryController {
 
     private final InquiryService inquiryService;
+    private final SmsService smsService;
 
-    public InquiryController(InquiryService inquiryService) {
+    public InquiryController(InquiryService inquiryService, SmsService smsService) {
         this.inquiryService = inquiryService;
+        this.smsService = smsService;
     }
 
     @PostMapping
@@ -60,10 +63,26 @@ public class InquiryController {
     }
 
     @GetMapping("/health")
-    public ResponseEntity<Map<String, String>> healthCheck() {
-        Map<String, String> response = new HashMap<>();
+    public ResponseEntity<Map<String, Object>> healthCheck() {
+        Map<String, Object> response = new HashMap<>();
         response.put("status", "UP");
         response.put("service", "inquiry-service");
+        response.put("smsService", smsService.isServiceAvailable() ? "AVAILABLE" : "UNAVAILABLE");
+        response.put("timestamp", java.time.LocalDateTime.now());
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/sms-status")
+    public ResponseEntity<Map<String, Object>> smsStatus() {
+        Map<String, Object> response = new HashMap<>();
+        response.put("available", smsService.isServiceAvailable());
+        response.put("serviceType", smsService.getClass().getSimpleName());
+        response.put("timestamp", java.time.LocalDateTime.now());
+
+        if (!smsService.isServiceAvailable()) {
+            response.put("message", "NCP SMS 서비스 설정을 확인하세요. NCP_SMS_SETUP_GUIDE.md 파일을 참조하세요.");
+        }
+
         return ResponseEntity.ok(response);
     }
 }
