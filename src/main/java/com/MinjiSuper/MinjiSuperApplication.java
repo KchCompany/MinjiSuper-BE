@@ -1,13 +1,13 @@
-package com.MinjiSuper.MinjiSuper_BE;
+package com.minjisuper;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MinjiSuperBeApplication {
+public class MinjiSuperApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MinjiSuperBeApplication.class, args);
+		SpringApplication.run(MinjiSuperApplication.class, args);
 	}
 
 }

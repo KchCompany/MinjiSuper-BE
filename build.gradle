@@ -38,6 +38,9 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+	// H2 데이터베이스 (개발용)
+	runtimeOnly 'com.h2database:h2'
+
 	// 네이버 클라우드 SMS API 관련 (JSON 데이터 변환용)
 	implementation 'com.fasterxml.jackson.core:jackson-databind'
 

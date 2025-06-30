@@ -1,4 +1,4 @@
-package inquary;
+package com.minjisuper.inquiry.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -81,4 +81,3 @@ public class NaverSmsService {
         return Base64.getEncoder().encodeToString(rawHmac);
     }
 }
-

@@ -1,4 +1,4 @@
-package inquary;
+package com.minjisuper.inquiry.service;
 
 import org.springframework.stereotype.Service;
 

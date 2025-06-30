@@ -1,10 +1,10 @@
-package com.MinjiSuper.MinjiSuper_BE;
+package com.minjisuper;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MinjiSuperBeApplicationTests {
+class MinjiSuperApplicationTests {
 
 	@Test
 	void contextLoads() {
