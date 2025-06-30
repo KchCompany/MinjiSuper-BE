@@ -27,6 +27,10 @@ public class Inquiry {
     @Column(columnDefinition = "TEXT")
     private String message;
 
+    @NotBlank(message = "희망 지역을 입력하세요.")
+    private String desiredArea;
+
+
     private boolean agreed;  // 약관 동의 여부
 
     private LocalDateTime createdAt = LocalDateTime.now();

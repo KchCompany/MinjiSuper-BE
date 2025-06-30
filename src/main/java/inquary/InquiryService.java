@@ -13,7 +13,7 @@ public class InquiryService {
 
     public InquiryService(InquiryRepository inquiryRepository, FakeNaverSmsService smsService) {
         this.inquiryRepository = inquiryRepository;
-        this.smsService = smsService;
+        this.smsService =  smsService;
     }
 
     @Transactional
@@ -25,6 +25,7 @@ public class InquiryService {
             String smsMessage = "[문의 접수 알림]\n"
                     + "이름: " + inquiry.getName() + "\n"
                     + "연락처: " + inquiry.getPhone() + "\n"
+                    + "희망 지역: " + inquiry.getDesiredArea() + "\n"
                     + "문의 내용: " + inquiry.getMessage();
 
             smsService.sendSms("01098765432", smsMessage); // 담당자 전화번호
